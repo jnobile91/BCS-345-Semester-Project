@@ -1,11 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="778.0" style="-fx-background-color: gray;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="bcs345_semester_project.FXMLDocumentController">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="778.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="View">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Image">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Colors">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeecec" height="436.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="80.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeecec" height="72.0" layoutX="-1.0" layoutY="461.0" stroke="BLACK" strokeType="INSIDE" width="778.0" />
+      <Canvas height="344.0" layoutX="89.0" layoutY="33.0" width="521.0" />
+      <Button layoutX="2.0" layoutY="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="Star" />
+      <Button layoutX="40.0" layoutY="40.0" mnemonicParsing="false" text="Rec" />
+      <Button layoutX="3.0" layoutY="65.0" mnemonicParsing="false" text="ERS" />
+      <Button layoutX="42.0" layoutY="65.0" mnemonicParsing="false" text="Fill" />
+      <Button layoutX="2.0" layoutY="90.0" mnemonicParsing="false" text="drip" />
+      <Button layoutX="38.0" layoutY="90.0" mnemonicParsing="false" text="mag" />
+      <Button layoutX="38.0" layoutY="115.0" mnemonicParsing="false" text="brsh" />
+      <Button layoutY="115.0" mnemonicParsing="false" text="penc" />
+      <Button layoutX="39.0" layoutY="140.0" mnemonicParsing="false" text="font" />
+      <Button layoutY="140.0" mnemonicParsing="false" text="spry" />
+      <Button layoutX="36.0" layoutY="165.0" mnemonicParsing="false" text="c line" />
+      <Button layoutX="-3.0" layoutY="165.0" mnemonicParsing="false" text="line" />
+      <Button layoutX="34.0" layoutY="193.0" mnemonicParsing="false" text="shape" />
+      <Button layoutY="193.0" mnemonicParsing="false" text="Rec" />
+      <Button layoutX="-5.0" layoutY="218.0" mnemonicParsing="false" text="oval" />
+      <Button layoutX="42.0" layoutY="218.0" mnemonicParsing="false" text="sqr" />
+   </children>
 </AnchorPane>

@@ -1,11 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
-    
+<AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="778.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="778.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="View">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Image">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Colors">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeecec" height="436.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="109.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeecec" height="72.0" layoutX="-1.0" layoutY="461.0" stroke="BLACK" strokeType="INSIDE" width="778.0" />
+      <Canvas height="436.0" layoutX="109.0" layoutY="27.0" width="669.0" />
+      <Button layoutX="8.0" layoutY="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="Star" />
+      <Button layoutX="55.0" layoutY="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="Rec" />
+      <Button layoutX="9.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="ERS" />
+      <Button layoutX="55.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="Fill" />
+      <Button layoutX="9.0" layoutY="95.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="drip" />
+      <Button layoutX="55.0" layoutY="95.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="mag" />
+      <Button layoutX="55.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="brsh" />
+      <Button layoutX="9.0" layoutY="127.0" mnemonicParsing="false" text="penc" />
+      <Button layoutX="55.0" layoutY="158.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="font" />
+      <Button layoutX="10.0" layoutY="158.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="spry" />
+      <Button layoutX="55.0" layoutY="189.0" mnemonicParsing="false" text="c line" />
+      <Button layoutX="10.0" layoutY="189.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="line" />
+      <Button layoutX="55.0" layoutY="220.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="shp" />
+      <Button layoutX="10.0" layoutY="220.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Rec" />
+      <Button layoutX="10.0" layoutY="254.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="oval" />
+      <Button layoutX="57.0" layoutY="254.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="sqr" />
+   </children>
 </AnchorPane>

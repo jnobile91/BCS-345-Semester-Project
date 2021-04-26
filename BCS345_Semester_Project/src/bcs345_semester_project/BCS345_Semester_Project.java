@@ -25,7 +25,5 @@ public class BCS345_Semester_Project extends Application {
         launch(args);
         
         
-        // TEST COMMENT
     }
-    
 }

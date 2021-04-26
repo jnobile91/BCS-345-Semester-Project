@@ -8,7 +8,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="778.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
+
+<AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="778.0" style="-fx-background-color: gray;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="bcs345_semester_project.FXMLDocumentController">
    <children>
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="778.0">
         <menus>
@@ -44,24 +45,24 @@
             </Menu>
         </menus>
       </MenuBar>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeecec" height="436.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="109.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeecec" height="436.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="80.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeecec" height="72.0" layoutX="-1.0" layoutY="461.0" stroke="BLACK" strokeType="INSIDE" width="778.0" />
-      <Canvas height="436.0" layoutX="109.0" layoutY="27.0" width="669.0" />
-      <Button layoutX="8.0" layoutY="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="Star" />
-      <Button layoutX="55.0" layoutY="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="Rec" />
-      <Button layoutX="9.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="ERS" />
-      <Button layoutX="55.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="Fill" />
-      <Button layoutX="9.0" layoutY="95.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="drip" />
-      <Button layoutX="55.0" layoutY="95.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="mag" />
-      <Button layoutX="55.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="brsh" />
-      <Button layoutX="9.0" layoutY="127.0" mnemonicParsing="false" text="penc" />
-      <Button layoutX="55.0" layoutY="158.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="font" />
-      <Button layoutX="10.0" layoutY="158.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="spry" />
-      <Button layoutX="55.0" layoutY="189.0" mnemonicParsing="false" text="c line" />
-      <Button layoutX="10.0" layoutY="189.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="line" />
-      <Button layoutX="55.0" layoutY="220.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="shp" />
-      <Button layoutX="10.0" layoutY="220.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Rec" />
-      <Button layoutX="10.0" layoutY="254.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="oval" />
-      <Button layoutX="57.0" layoutY="254.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="sqr" />
+      <Canvas height="344.0" layoutX="89.0" layoutY="33.0" width="521.0" />
+      <Button layoutX="2.0" layoutY="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="Star" />
+      <Button layoutX="40.0" layoutY="40.0" mnemonicParsing="false" text="Rec" />
+      <Button layoutX="3.0" layoutY="65.0" mnemonicParsing="false" text="ERS" />
+      <Button layoutX="42.0" layoutY="65.0" mnemonicParsing="false" text="Fill" />
+      <Button layoutX="2.0" layoutY="90.0" mnemonicParsing="false" text="drip" />
+      <Button layoutX="38.0" layoutY="90.0" mnemonicParsing="false" text="mag" />
+      <Button layoutX="38.0" layoutY="115.0" mnemonicParsing="false" text="brsh" />
+      <Button layoutY="115.0" mnemonicParsing="false" text="penc" />
+      <Button layoutX="39.0" layoutY="140.0" mnemonicParsing="false" text="font" />
+      <Button layoutY="140.0" mnemonicParsing="false" text="spry" />
+      <Button layoutX="36.0" layoutY="165.0" mnemonicParsing="false" text="c line" />
+      <Button layoutX="-3.0" layoutY="165.0" mnemonicParsing="false" text="line" />
+      <Button layoutX="34.0" layoutY="193.0" mnemonicParsing="false" text="shape" />
+      <Button layoutY="193.0" mnemonicParsing="false" text="Rec" />
+      <Button layoutX="-5.0" layoutY="218.0" mnemonicParsing="false" text="oval" />
+      <Button layoutX="42.0" layoutY="218.0" mnemonicParsing="false" text="sqr" />
    </children>
 </AnchorPane>

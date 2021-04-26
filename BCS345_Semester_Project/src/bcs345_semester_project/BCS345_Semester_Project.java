@@ -23,6 +23,9 @@ public class BCS345_Semester_Project extends Application {
     
     public static void main(String[] args) {
         launch(args);
+        
+        
+        // TEST COMMENT
     }
     
 }

@@ -20,7 +20,7 @@ public class BCS345_Semester_Project extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    
+
     public static void main(String[] args) {
         launch(args);
         

@@ -11,9 +11,9 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="601.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="665.0" prefWidth="872.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
    <children>
-      <MenuBar prefHeight="29.0" prefWidth="601.0">
+      <MenuBar prefHeight="29.0" prefWidth="872.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -34,11 +34,12 @@
           </Menu>
         </menus>
       </MenuBar>
-      <ToolBar layoutY="29.0" orientation="VERTICAL" prefHeight="405.0" prefWidth="56.0">
+      <ToolBar layoutY="29.0" orientation="VERTICAL" prefHeight="636.0" prefWidth="61.0">
         <items>
           <Button mnemonicParsing="false" onAction="#setShape" text="Line" />
             <Button mnemonicParsing="false" onAction="#setShape" text="Rect" />
             <Button mnemonicParsing="false" onAction="#setShape" text="Circle" />
+            <Button mnemonicParsing="false" onAction="#setShape" text="Pencil" />
             <Separator orientation="VERTICAL" prefHeight="28.0" prefWidth="29.0" />
             <ColorPicker fx:id="mColorPicker" onAction="#selectColor" prefHeight="27.0" prefWidth="51.0" />
             <Slider fx:id="mSlider" max="5" orientation="VERTICAL" prefHeight="46.0" prefWidth="31.0" />

@@ -24,10 +24,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 
-/**
- *
- * @author MoaathAlrajab
- */
 public class FXMLDocumentController implements Initializable {
     private String selectedShape="LINE";
     private Color selectedColor=Color.BLUE;

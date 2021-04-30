@@ -41,6 +41,7 @@
             <Button mnemonicParsing="false" onAction="#setShape" text="Rect" />
             <Button mnemonicParsing="false" onAction="#setShape" text="Circle" />
             <Button mnemonicParsing="false" onAction="#setShape" text="Pencil" />
+            <Button mnemonicParsing="false" onAction="#setShape" text="Spray" />
             <Separator orientation="VERTICAL" prefHeight="28.0" prefWidth="29.0" />
             <ColorPicker fx:id="mColorPicker" onAction="#selectColor" prefHeight="27.0" prefWidth="51.0">
                <value>

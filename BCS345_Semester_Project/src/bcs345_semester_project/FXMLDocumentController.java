@@ -58,6 +58,7 @@ public class FXMLDocumentController implements Initializable {
              case   "Rect": selectedShape="RECT";       break;
              case   "Circle": selectedShape="CIRCLE";   break;
              case   "Pencil": selectedShape="PENCIL";   break;
+             case   "Spray": selectedShape="SPRAY";     break;
          }
     }
 
@@ -93,6 +94,15 @@ public class FXMLDocumentController implements Initializable {
                   gc.stroke();
               });
               //gc.beginPath(); gc.lineTo(event.getX(), event.getY()); gc.stroke();
+            break;
+          case "SPRAY":
+              mCanvas.setOnMouseDragged(e->{
+                  gc.beginPath();
+                  gc.lineTo(e.getSceneX()-60, e.getSceneY()-28);
+                  gc.setStroke(selectedColor);
+                  gc.setLineWidth(mSlider.getValue());
+                  gc.stroke();
+              });
             break;
         }
     }

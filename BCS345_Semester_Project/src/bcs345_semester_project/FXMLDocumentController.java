@@ -26,7 +26,7 @@ import javafx.scene.text.Text;
 
 public class FXMLDocumentController implements Initializable {
     private String selectedShape="LINE";
-    private Color selectedColor=Color.BLUE;
+    private Color selectedColor=Color.BLACK;
     double srtX = 0, srtY = 0;
     double endX = 0, endY = 0;
     

@@ -45,6 +45,6 @@
             <Slider fx:id="mSlider" max="5" orientation="VERTICAL" prefHeight="46.0" prefWidth="31.0" />
         </items>
       </ToolBar>
-      <Canvas fx:id="mCanvas" height="405.0" layoutX="61.0" layoutY="29.0" onMousePressed="#startShape" onMouseReleased="#startDraw" width="540.0" />
+      <Canvas fx:id="mCanvas" height="636.0" layoutX="61.0" layoutY="29.0" onMousePressed="#startShape" onMouseReleased="#startDraw" width="811.0" />
    </children>
 </AnchorPane>

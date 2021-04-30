@@ -75,7 +75,7 @@ public class FXMLDocumentController implements Initializable {
         switch(selectedShape){
           case "LINE":   gc.strokeLine(srtX,srtY,endX,endY);break;
           case "RECT":  gc.strokeRect(srtX,srtY,(endX-srtX),(endY-srtY)); break;
-          case "CIRCLE":  gc.strokeOval(srtX,srtY,endX,endY); break;          
+          case "CIRCLE":  gc.strokeOval(srtX,srtY,(endX-srtX),(endY-srtY)); break;
         }
     }
 

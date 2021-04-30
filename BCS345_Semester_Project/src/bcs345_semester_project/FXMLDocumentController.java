@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -27,6 +28,7 @@ import javafx.scene.text.Text;
 public class FXMLDocumentController implements Initializable {
     private String selectedShape="LINE";
     private Color selectedColor=Color.BLACK;
+    //Scene scene = new Scene(root);
     double srtX = 0, srtY = 0;
     double endX = 0, endY = 0;
     
@@ -55,6 +57,7 @@ public class FXMLDocumentController implements Initializable {
              case   "Line": selectedShape="LINE";       break;
              case   "Rect": selectedShape="RECT";       break;
              case   "Circle": selectedShape="CIRCLE";   break;
+             case   "Pencil": selectedShape="PENCIL";   break;
          }
     }
 
@@ -68,14 +71,29 @@ public class FXMLDocumentController implements Initializable {
     private void startDraw(MouseEvent event) {
         endX=event.getX();
         endY=event.getY();
-        GraphicsContext gc= mCanvas.getGraphicsContext2D();
+        GraphicsContext gc = mCanvas.getGraphicsContext2D();
         gc.setStroke(selectedColor);
         System.out.println(""+selectedColor);
         gc.setLineWidth(mSlider.getValue());
         switch(selectedShape){
-          case "LINE":   gc.strokeLine(srtX,srtY,endX,endY);break;
-          case "RECT":  gc.strokeRect(srtX,srtY,(endX-srtX),(endY-srtY)); break;
-          case "CIRCLE":  gc.strokeOval(srtX,srtY,(endX-srtX),(endY-srtY)); break;
+          case "LINE":   gc.strokeLine(srtX,srtY,endX,endY);
+            break;
+          case "RECT":  gc.strokeRect(srtX,srtY,(endX-srtX),(endY-srtY));
+            break;
+          case "CIRCLE":  gc.strokeOval(srtX,srtY,(endX-srtX),(endY-srtY));
+            break;
+          case "PENCIL": 
+              mCanvas.setOnMousePressed(e->{
+                  gc.beginPath();
+                  gc.lineTo(e.getSceneX(), e.getSceneY());
+                  gc.stroke();
+              });
+              mCanvas.setOnMouseDragged(e->{
+                  gc.lineTo(e.getSceneX(), e.getSceneY());
+                  gc.stroke();
+              });
+              //gc.beginPath(); gc.lineTo(event.getX(), event.getY()); gc.stroke();
+            break;
         }
     }
 

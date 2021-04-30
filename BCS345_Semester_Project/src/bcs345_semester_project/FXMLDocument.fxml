@@ -10,6 +10,7 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 
 <AnchorPane id="AnchorPane" prefHeight="665.0" prefWidth="872.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
    <children>
@@ -41,7 +42,10 @@
             <Button mnemonicParsing="false" onAction="#setShape" text="Circle" />
             <Button mnemonicParsing="false" onAction="#setShape" text="Pencil" />
             <Separator orientation="VERTICAL" prefHeight="28.0" prefWidth="29.0" />
-            <ColorPicker fx:id="mColorPicker" onAction="#selectColor" prefHeight="27.0" prefWidth="51.0" />
+            <ColorPicker fx:id="mColorPicker" onAction="#selectColor" prefHeight="27.0" prefWidth="51.0">
+               <value>
+                  <Color />
+               </value></ColorPicker>
             <Slider fx:id="mSlider" max="5" orientation="VERTICAL" prefHeight="46.0" prefWidth="31.0" />
         </items>
       </ToolBar>

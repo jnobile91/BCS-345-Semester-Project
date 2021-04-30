@@ -6,15 +6,19 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="778.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
    <children>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="778.0">
+      <MenuBar prefHeight="29.0" prefWidth="601.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save" />
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
@@ -23,47 +27,23 @@
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="View">
+          <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Image">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Colors">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Help">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
-            </Menu>
         </menus>
       </MenuBar>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeecec" height="436.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="102.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeecec" height="72.0" layoutX="-1.0" layoutY="461.0" stroke="BLACK" strokeType="INSIDE" width="778.0" />
-      <Canvas height="436.0" layoutX="87.0" layoutY="27.0" width="691.0" />
-      <Button layoutX="13.0" layoutY="35.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="Star" />
-      <Button layoutX="51.0" layoutY="35.0" mnemonicParsing="false" text="Rec" />
-      <Button layoutX="14.0" layoutY="60.0" mnemonicParsing="false" text="ERS" />
-      <Button layoutX="53.0" layoutY="60.0" mnemonicParsing="false" text="Fill" />
-      <Button layoutX="13.0" layoutY="85.0" mnemonicParsing="false" text="drip" />
-      <Button layoutX="49.0" layoutY="85.0" mnemonicParsing="false" text="mag" />
-      <Button layoutX="49.0" layoutY="110.0" mnemonicParsing="false" text="brsh" />
-      <Button layoutX="11.0" layoutY="110.0" mnemonicParsing="false" text="penc" />
-      <Button layoutX="50.0" layoutY="135.0" mnemonicParsing="false" text="font" />
-      <Button layoutX="11.0" layoutY="135.0" mnemonicParsing="false" text="spry" />
-      <Button layoutX="47.0" layoutY="160.0" mnemonicParsing="false" text="c line" />
-      <Button layoutX="8.0" layoutY="160.0" mnemonicParsing="false" text="line" />
-      <Button layoutX="45.0" layoutY="188.0" mnemonicParsing="false" text="shape" />
-      <Button layoutX="11.0" layoutY="188.0" mnemonicParsing="false" text="Rec" />
-      <Button layoutX="6.0" layoutY="213.0" mnemonicParsing="false" text="oval" />
-      <Button layoutX="53.0" layoutY="213.0" mnemonicParsing="false" text="sqr" />
-      <ColorPicker layoutX="27.0" layoutY="245.0" prefHeight="25.0" prefWidth="48.0" />
+      <ToolBar layoutY="29.0" prefHeight="40.0" prefWidth="601.0">
+        <items>
+          <Button mnemonicParsing="false" onAction="#setShape" text="Line" />
+            <Button mnemonicParsing="false" onAction="#setShape" text="Rect" />
+            <Button mnemonicParsing="false" onAction="#setShape" text="Circle" />
+            <Separator prefHeight="28.0" prefWidth="80.0" />
+            <ColorPicker fx:id="mColorPicker" onAction="#selectColor" prefHeight="27.0" prefWidth="172.0" />
+            <Slider fx:id="mSlider" max="5" />
+        </items>
+      </ToolBar>
+      <Canvas fx:id="mCanvas" height="365.0" layoutY="69.0" onMousePressed="#startShape" onMouseReleased="#startDraw" width="601.0" />
    </children>
 </AnchorPane>

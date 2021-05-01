@@ -1,15 +1,17 @@
 package bcs345_semester_project;
 
 
+import java.awt.MenuItem;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.Scene;
+import javafx.scene.Scene.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -25,9 +27,16 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
+import java.lang.Object;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
+
+
 
 public class FXMLDocumentController implements Initializable {
+    
     private String selectedShape="LINE";
+    
     private Color selectedColor=Color.BLACK;
     //Scene scene = new Scene(root);
     double srtX = 0, srtY = 0;
@@ -41,15 +50,7 @@ public class FXMLDocumentController implements Initializable {
     private Canvas mCanvas;
     @FXML
     private Slider mSlider;
-
-    @FXML
-    private void openFile(ActionEvent event) {
-    }
-
-    @FXML
-    private void saveFile(ActionEvent event) {
-    }
-
+ 
     @FXML
     private void setShape(ActionEvent event) {
         Button btn =(Button)event.getSource();
@@ -116,4 +117,40 @@ public class FXMLDocumentController implements Initializable {
     private void selectColor(ActionEvent event) {
         selectedColor = mColorPicker.getValue();
     }
-}
+
+
+    @FXML
+    
+    private void newPage(ActionEvent event) {
+       GraphicsContext gc = mCanvas.getGraphicsContext2D();
+       gc.clearRect(0, 0, mCanvas.getWidth(), mCanvas.getHeight());
+    }
+
+    @FXML
+    private void openProgram(ActionEvent event) {
+    }
+
+    @FXML
+    private void saveProgram(ActionEvent event) {
+    }
+
+    @FXML
+    private void closeProgram(ActionEvent event) {
+        Platform.exit();
+              System.exit(0);
+    }
+  
+
+
+
+
+} //end of program
+
+
+  
+
+   
+
+   
+
+   

@@ -9,6 +9,8 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 
@@ -37,11 +39,46 @@
       </MenuBar>
       <ToolBar layoutY="29.0" orientation="VERTICAL" prefHeight="636.0" prefWidth="61.0">
         <items>
-          <Button mnemonicParsing="false" onAction="#setShape" text="Line" />
-            <Button mnemonicParsing="false" onAction="#setShape" text="Rect" />
-            <Button mnemonicParsing="false" onAction="#setShape" text="Circle" />
-            <Button mnemonicParsing="false" onAction="#setShape" text="Pencil" />
-            <Button mnemonicParsing="false" onAction="#setShape" text="Spray" />
+          <Button mnemonicParsing="false" onAction="#setShape" text="Line">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@icons/line.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#setShape" text="Rect">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@icons/rectangle.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#setShape" text="Circle">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@icons/circle.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#setShape" text="Pencil">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@icons/pencil.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#setShape" text="Spray">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@icons/spray.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             <Separator orientation="VERTICAL" prefHeight="28.0" prefWidth="29.0" />
             <ColorPicker fx:id="mColorPicker" onAction="#selectColor" prefHeight="27.0" prefWidth="51.0">
                <value>
@@ -50,6 +87,6 @@
             <Slider fx:id="mSlider" max="5" orientation="VERTICAL" prefHeight="46.0" prefWidth="31.0" />
         </items>
       </ToolBar>
-      <Canvas fx:id="mCanvas" height="636.0" layoutX="61.0" layoutY="29.0" onMousePressed="#startShape" onMouseReleased="#startDraw" width="811.0" />
+      <Canvas fx:id="mCanvas" height="642.0" layoutX="92.0" layoutY="26.0" onMousePressed="#startShape" onMouseReleased="#startDraw" width="778.0" />
    </children>
 </AnchorPane>

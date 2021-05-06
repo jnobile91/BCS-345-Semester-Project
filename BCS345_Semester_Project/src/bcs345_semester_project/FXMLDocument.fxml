@@ -82,18 +82,68 @@
                   </ImageView>
                </graphic></Button>
             <Separator orientation="VERTICAL" prefHeight="28.0" prefWidth="29.0" />
-            <ColorPicker fx:id="mColorPicker" onAction="#selectColor" prefHeight="27.0" prefWidth="51.0">
-               <value>
-                  <Color />
-               </value></ColorPicker>
             <Slider fx:id="mSlider" max="5" orientation="VERTICAL" prefHeight="46.0" prefWidth="31.0" />
-            <Button mnemonicParsing="false" text="blue">
-               <graphic>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-               </graphic>
-            </Button>
         </items>
       </ToolBar>
-      <Canvas fx:id="mCanvas" height="642.0" layoutX="92.0" layoutY="26.0" onMousePressed="#startShape" onMouseReleased="#startDraw" width="778.0" />
+      <Canvas fx:id="mCanvas" height="553.0" layoutX="92.0" layoutY="26.0" onMousePressed="#startShape" onMouseReleased="#startDraw" width="778.0" />
+      <ToolBar layoutX="-3.0" layoutY="576.0" prefHeight="89.0" prefWidth="872.0">
+         <items>
+            <ColorPicker fx:id="mColorPicker" accessibleRole="BUTTON" onAction="#selectColor" prefHeight="50.0" prefWidth="80.0">
+               <value>
+                  <Color />
+               </value>
+            </ColorPicker>
+            <Button fx:id="white" mnemonicParsing="false" onAction="#selectColor" prefHeight="30.0" prefWidth="30.0" scaleShape="false">
+               <graphic>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="grey" mnemonicParsing="false" onAction="#selectColor" prefHeight="30.0" prefWidth="30.0" scaleShape="false">
+               <graphic>
+                  <Rectangle fx:id="grey" arcHeight="5.0" arcWidth="5.0" fill="GREY" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="brown" mnemonicParsing="false" onAction="#selectColor" prefHeight="30.0" prefWidth="30.0" scaleShape="false">
+               <graphic>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BROWN" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="black" mnemonicParsing="false" onAction="#selectColor" prefHeight="30.0" prefWidth="30.0" scaleShape="false">
+               <graphic>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="yellow" mnemonicParsing="false" onAction="#selectColor" prefHeight="30.0" prefWidth="30.0" scaleShape="false">
+               <graphic>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="green" mnemonicParsing="false" onAction="#selectColor" prefHeight="30.0" prefWidth="30.0" scaleShape="false">
+               <graphic>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="red" mnemonicParsing="false" onAction="#selectColor" prefHeight="30.0" prefWidth="30.0" scaleShape="false">
+               <graphic>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="orange" mnemonicParsing="false" onAction="#selectColor" prefHeight="30.0" prefWidth="30.0" scaleShape="false">
+               <graphic>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="blue" mnemonicParsing="false" onAction="#selectColor" prefHeight="30.0" prefWidth="30.0" scaleShape="false">
+               <graphic>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="purple" mnemonicParsing="false" onAction="#selectColor" prefHeight="30.0" prefWidth="30.0" snapToPixel="false">
+               <graphic>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="PURPLE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
    </children>
 </AnchorPane>

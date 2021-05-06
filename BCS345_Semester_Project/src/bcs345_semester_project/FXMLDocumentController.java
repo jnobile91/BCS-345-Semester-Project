@@ -44,7 +44,7 @@ public class FXMLDocumentController implements Initializable {
     
     private Label label;
     @FXML
-    private ColorPicker mColorPicker;
+   private ColorPicker mColorPicker;
     private Group c;
     @FXML
     private Canvas mCanvas;
@@ -115,9 +115,33 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void selectColor(ActionEvent event) {
-        selectedColor = mColorPicker.getValue();
+     // selectedColor = mColorPicker.getValue();
+ 
+            Button btn =(Button)event.getSource();   
+         switch(btn.getId()){
+             case   "blue": selectedColor=Color.BLUE;       break;
+             case   "red": selectedColor=Color.RED;       break;
+             case   "green": selectedColor=Color.GREEN;       break;
+             case   "orange": selectedColor=Color.ORANGE;       break;
+             case   "yellow": selectedColor=Color.YELLOW;       break;
+             case   "purple": selectedColor=Color.PURPLE;       break;
+             case   "black": selectedColor=Color.BLACK;       break;
+             case   "white": selectedColor=Color.WHITE;       break;
+             case   "brown": selectedColor=Color.BROWN;       break;
+             case   "grey": selectedColor=Color.GREY;       break;    
+             
+         }
+ mColorPicker.setOnAction(new EventHandler() {
+     public void handle(Event t) {
+         Color c = mColorPicker.getValue();
+         selectedColor = c;
+     }
+ });
+        
     }
-
+       
+        
+    
 
     @FXML
     

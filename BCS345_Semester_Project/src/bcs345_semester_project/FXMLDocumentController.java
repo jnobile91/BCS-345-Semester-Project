@@ -88,11 +88,11 @@ public class FXMLDocumentController implements Initializable {
           case "PENCIL": 
               mCanvas.setOnMousePressed(e->{
                   gc.beginPath();
-                  gc.lineTo(e.getSceneX()-60, e.getSceneY()-28);
+                  gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
                   gc.stroke();
               });
               mCanvas.setOnMouseDragged(e->{
-                  gc.lineTo(e.getSceneX()-60, e.getSceneY()-28);
+                  gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
                   gc.stroke();
               });
               //gc.beginPath(); gc.lineTo(event.getX(), event.getY()); gc.stroke();
@@ -100,7 +100,7 @@ public class FXMLDocumentController implements Initializable {
           case "SPRAY":
               mCanvas.setOnMouseDragged(e->{
                   gc.beginPath();
-                  gc.lineTo(e.getSceneX()-60, e.getSceneY()-28);
+                  gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
                   gc.setStroke(selectedColor);
                   gc.setLineWidth(mSlider.getValue());
                   gc.stroke();

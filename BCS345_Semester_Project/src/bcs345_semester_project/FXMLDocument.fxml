@@ -81,6 +81,15 @@
                   </ImageView>
                </graphic></Button>
             <Slider fx:id="mSlider" max="5" orientation="VERTICAL" prefHeight="46.0" prefWidth="31.0" />
+            <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="84.0" text="Eraser">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@icons/spray.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
         </items>
       </ToolBar>
       <Canvas fx:id="mCanvas" height="544.0" layoutX="97.0" layoutY="30.0" onMouseDragged="#startPencil" onMousePressed="#startShape" onMouseReleased="#startDraw" width="773.0" />

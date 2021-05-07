@@ -61,6 +61,7 @@ public class FXMLDocumentController implements Initializable {
              case   "Circle": selectedShape="CIRCLE";   break;
              case   "Pencil": selectedShape="PENCIL";   break;
              case   "Spray": selectedShape="SPRAY";     break;
+             case   "Eraser": selectedShape="ERASER";   break;
          }
     }
 
@@ -131,6 +132,8 @@ public class FXMLDocumentController implements Initializable {
                 gc.lineTo(endX, endY);
                 gc.stroke();
             break;
+          case "ERASER":
+                gc.clearRect(endX, endY, mSlider.getValue(), mSlider.getValue());
         }
     }
 

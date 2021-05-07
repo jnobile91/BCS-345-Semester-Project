@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
@@ -41,7 +40,7 @@
       </MenuBar>
       <ToolBar layoutY="29.0" orientation="VERTICAL" prefHeight="636.0" prefWidth="61.0">
         <items>
-          <Button mnemonicParsing="false" onAction="#setShape" text="Line">
+          <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="83.0" text="Line">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">
                      <image>
@@ -49,7 +48,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button mnemonicParsing="false" onAction="#setShape" text="Rect">
+            <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="83.0" text="Rect">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">
                      <image>
@@ -57,7 +56,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button mnemonicParsing="false" onAction="#setShape" text="Circle">
+            <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="83.0" text="Circle">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">
                      <image>
@@ -65,7 +64,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button mnemonicParsing="false" onAction="#setShape" text="Pencil">
+            <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="84.0" text="Pencil">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">
                      <image>
@@ -73,7 +72,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button mnemonicParsing="false" onAction="#setShape" text="Spray">
+            <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="84.0" text="Spray">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">
                      <image>
@@ -81,11 +80,10 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Separator orientation="VERTICAL" prefHeight="28.0" prefWidth="29.0" />
             <Slider fx:id="mSlider" max="5" orientation="VERTICAL" prefHeight="46.0" prefWidth="31.0" />
         </items>
       </ToolBar>
-      <Canvas fx:id="mCanvas" height="553.0" layoutX="92.0" layoutY="26.0" onMousePressed="#startShape" onMouseReleased="#startDraw" width="778.0" />
+      <Canvas fx:id="mCanvas" height="544.0" layoutX="97.0" layoutY="30.0" onMouseDragged="#startPencil" onMousePressed="#startShape" onMouseReleased="#startDraw" width="773.0" />
       <ToolBar layoutX="-3.0" layoutY="576.0" prefHeight="89.0" prefWidth="872.0">
          <items>
             <ColorPicker fx:id="mColorPicker" accessibleRole="BUTTON" onAction="#selectColor" prefHeight="50.0" prefWidth="80.0">

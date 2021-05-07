@@ -109,6 +109,18 @@ public class FXMLDocumentController implements Initializable {
                   gc.strokeOval(endX, endY, (srtX-endX), (srtY-endY));
                 }
             break;
+        }
+    }
+    
+    @FXML
+    private void startPencil(MouseEvent event) {
+        endX = event.getX();
+        endY = event.getY();
+        GraphicsContext gc = mCanvas.getGraphicsContext2D();
+        gc.setStroke(selectedColor);
+        System.out.println(selectedShape+" "+selectedColor);
+        gc.setLineWidth(mSlider.getValue());
+        switch(selectedShape){
           case "PENCIL": 
               mCanvas.setOnMousePressed(e->{
                   if (selectedShape == "PENCIL") {
@@ -124,7 +136,6 @@ public class FXMLDocumentController implements Initializable {
                   }
               });
               gc.closePath();
-              //gc.beginPath(); gc.lineTo(event.getX(), event.getY()); gc.stroke();
             break;
           case "SPRAY":
               mCanvas.setOnMouseDragged(e->{
@@ -168,14 +179,9 @@ public class FXMLDocumentController implements Initializable {
          selectedColor = c;
      }
  });
-        
     }
-       
-        
-    
 
     @FXML
-    
     private void newPage(ActionEvent event) {
        GraphicsContext gc = mCanvas.getGraphicsContext2D();
        gc.clearRect(0, 0, mCanvas.getWidth(), mCanvas.getHeight());
@@ -194,18 +200,4 @@ public class FXMLDocumentController implements Initializable {
         Platform.exit();
               System.exit(0);
     }
-  
-
-
-
-
 } //end of program
-
-
-  
-
-   
-
-   
-
-   

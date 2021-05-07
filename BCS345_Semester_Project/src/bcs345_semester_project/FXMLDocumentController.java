@@ -44,7 +44,7 @@ public class FXMLDocumentController implements Initializable {
     
     private Label label;
     @FXML
-   private ColorPicker mColorPicker;
+    private ColorPicker mColorPicker;
     private Group c;
     @FXML
     private Canvas mCanvas;
@@ -66,17 +66,17 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void startShape(MouseEvent event) {
-        srtX=event.getX();
-        srtY=event.getY();
+        srtX = event.getX();
+        srtY = event.getY();
     }
     
     @FXML
     private void startDraw(MouseEvent event) {
-        endX=event.getX();
-        endY=event.getY();
+        endX = event.getX();
+        endY = event.getY();
         GraphicsContext gc = mCanvas.getGraphicsContext2D();
         gc.setStroke(selectedColor);
-        System.out.println(""+selectedColor);
+        System.out.println(selectedShape+" "+selectedColor);
         gc.setLineWidth(mSlider.getValue());
         switch(selectedShape){
           case "LINE":   gc.strokeLine(srtX, srtY, endX, endY);
@@ -111,23 +111,30 @@ public class FXMLDocumentController implements Initializable {
             break;
           case "PENCIL": 
               mCanvas.setOnMousePressed(e->{
+                  if (selectedShape == "PENCIL") {
                   gc.beginPath();
                   gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
                   gc.stroke();
+                  }
               });
               mCanvas.setOnMouseDragged(e->{
+                  if (selectedShape == "PENCIL") {
                   gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
                   gc.stroke();
+                  }
               });
+              gc.closePath();
               //gc.beginPath(); gc.lineTo(event.getX(), event.getY()); gc.stroke();
             break;
           case "SPRAY":
               mCanvas.setOnMouseDragged(e->{
-                  gc.beginPath();
-                  gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
-                  gc.setStroke(selectedColor);
-                  gc.setLineWidth(mSlider.getValue());
-                  gc.stroke();
+                  if (selectedShape == "SPRAY") {
+                    gc.beginPath();
+                    gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
+                    gc.setStroke(selectedColor);
+                    gc.setLineWidth(mSlider.getValue());
+                    gc.stroke();
+                  }
               });
             break;
         }

@@ -112,15 +112,15 @@ public class FXMLDocumentController implements Initializable {
           case "PENCIL": 
               mCanvas.setOnMousePressed(e->{
                   if (selectedShape == "PENCIL") {
-                  gc.beginPath();
-                  gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
-                  gc.stroke();
+                    gc.beginPath();
+                    gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
+                    gc.stroke();
                   }
               });
               mCanvas.setOnMouseDragged(e->{
                   if (selectedShape == "PENCIL") {
-                  gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
-                  gc.stroke();
+                    gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
+                    gc.stroke();
                   }
               });
               gc.closePath();

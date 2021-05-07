@@ -85,7 +85,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">
                      <image>
-                        <Image url="@icons/spray.png" />
+                        <Image url="@icons/eraser.png" />
                      </image>
                   </ImageView>
                </graphic>

@@ -79,11 +79,23 @@ public class FXMLDocumentController implements Initializable {
         System.out.println(""+selectedColor);
         gc.setLineWidth(mSlider.getValue());
         switch(selectedShape){
-          case "LINE":   gc.strokeLine(srtX,srtY,endX,endY);
+          case "LINE":   gc.strokeLine(srtX, srtY, endX, endY);
             break;
-          case "RECT":  gc.strokeRect(srtX,srtY,(endX-srtX),(endY-srtY));
+          case "RECT":  
+              if ((srtX < endX) && (srtY < endY)) {
+                  gc.strokeRect(srtX, srtY, (endX-srtX), (endY-srtY));
+                }
+              else if ((srtX > endX) && (srtY < endY)) {
+                  gc.strokeRect(endX, srtY, (srtX-endX), (endY-srtY));
+                }
+              else if ((srtX < endX) && (srtY > endY)) {
+                  gc.strokeRect(srtX, endY, (endX-srtX), (srtY-endY));
+                }
+              else {
+                  gc.strokeRect(endX, endY, (srtX-endX), (srtY-endY));
+                }
             break;
-          case "CIRCLE":  gc.strokeOval(srtX,srtY,(endX-srtX),(endY-srtY));
+          case "CIRCLE":  gc.strokeOval(srtX, srtY, (endX-srtX), (endY-srtY));
             break;
           case "PENCIL": 
               mCanvas.setOnMousePressed(e->{

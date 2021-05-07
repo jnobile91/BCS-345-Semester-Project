@@ -75,6 +75,7 @@ public class FXMLDocumentController implements Initializable {
         endX = event.getX();
         endY = event.getY();
         GraphicsContext gc = mCanvas.getGraphicsContext2D();
+        gc.beginPath();
         gc.setStroke(selectedColor);
         System.out.println(selectedShape+" "+selectedColor);
         gc.setLineWidth(mSlider.getValue());
@@ -122,31 +123,13 @@ public class FXMLDocumentController implements Initializable {
         gc.setLineWidth(mSlider.getValue());
         switch(selectedShape){
           case "PENCIL": 
-              mCanvas.setOnMousePressed(e->{
-                  if (selectedShape == "PENCIL") {
-                    gc.beginPath();
-                    gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
-                    gc.stroke();
-                  }
-              });
-              mCanvas.setOnMouseDragged(e->{
-                  if (selectedShape == "PENCIL") {
-                    gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
-                    gc.stroke();
-                  }
-              });
-              gc.closePath();
+                gc.lineTo(endX, endY);
+                gc.stroke();
             break;
           case "SPRAY":
-              mCanvas.setOnMouseDragged(e->{
-                  if (selectedShape == "SPRAY") {
-                    gc.beginPath();
-                    gc.lineTo(e.getSceneX()-92, e.getSceneY()-25);
-                    gc.setStroke(selectedColor);
-                    gc.setLineWidth(mSlider.getValue());
-                    gc.stroke();
-                  }
-              });
+                gc.beginPath();
+                gc.lineTo(endX, endY);
+                gc.stroke();
             break;
         }
     }

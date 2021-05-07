@@ -95,7 +95,19 @@ public class FXMLDocumentController implements Initializable {
                   gc.strokeRect(endX, endY, (srtX-endX), (srtY-endY));
                 }
             break;
-          case "CIRCLE":  gc.strokeOval(srtX, srtY, (endX-srtX), (endY-srtY));
+          case "CIRCLE":
+              if ((srtX < endX) && (srtY < endY)) {
+                  gc.strokeOval(srtX, srtY, (endX-srtX), (endY-srtY));
+                }
+              else if ((srtX > endX) && (srtY < endY)) {
+                  gc.strokeOval(endX, srtY, (srtX-endX), (endY-srtY));
+                }
+              else if ((srtX < endX) && (srtY > endY)) {
+                  gc.strokeOval(srtX, endY, (endX-srtX), (srtY-endY));
+                }
+              else {
+                  gc.strokeOval(endX, endY, (srtX-endX), (srtY-endY));
+                }
             break;
           case "PENCIL": 
               mCanvas.setOnMousePressed(e->{

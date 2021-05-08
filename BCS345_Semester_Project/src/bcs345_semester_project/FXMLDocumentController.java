@@ -1,6 +1,5 @@
 package bcs345_semester_project;
 
-
 import java.awt.MenuItem;
 import java.net.URL;
 import java.util.ArrayList;
@@ -56,12 +55,27 @@ public class FXMLDocumentController implements Initializable {
         Button btn =(Button)event.getSource();
          
          switch(btn.getText()){
-             case   "Line": selectedShape="LINE";       break;
-             case   "Rect": selectedShape="RECT";       break;
-             case   "Circle": selectedShape="CIRCLE";   break;
-             case   "Pencil": selectedShape="PENCIL";   break;
-             case   "Spray": selectedShape="SPRAY";     break;
-             case   "Eraser": selectedShape="ERASER";   break;
+            case   "Line": 
+               selectedShape = "LINE";       
+               break;
+            case   "Rect":
+               selectedShape = "RECT";       
+               break;
+            case   "Circle": 
+               selectedShape = "CIRCLE";   
+               break;
+            case   "Pencil": 
+               selectedShape = "PENCIL";
+               break;
+            case   "Paint":
+               selectedShape = "PAINT";
+               break;
+            case   "Spray":                 
+               selectedShape = "SPRAY";     
+               break;
+            case   "Eraser":
+               selectedShape = "ERASER";  
+               break;
          }
     }
 
@@ -124,6 +138,12 @@ public class FXMLDocumentController implements Initializable {
         gc.setLineWidth(mSlider.getValue());
         switch(selectedShape){
           case "PENCIL": 
+                gc.setLineWidth((mSlider.getValue())*0.5);
+                gc.lineTo(endX, endY);
+                gc.stroke();
+            break;
+          case "PAINT": 
+                gc.setLineWidth((mSlider.getValue())*5);
                 gc.lineTo(endX, endY);
                 gc.stroke();
             break;
@@ -134,6 +154,7 @@ public class FXMLDocumentController implements Initializable {
             break;
           case "ERASER":
                 gc.clearRect(endX, endY, mSlider.getValue(), mSlider.getValue());
+            break;
         }
     }
 

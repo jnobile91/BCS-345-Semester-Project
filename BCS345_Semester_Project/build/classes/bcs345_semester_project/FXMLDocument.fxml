@@ -72,6 +72,15 @@
                      </image>
                   </ImageView>
                </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="84.0" text="Paint">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@icons/brush.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="84.0" text="Spray">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">

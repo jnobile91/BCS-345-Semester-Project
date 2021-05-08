@@ -1,6 +1,8 @@
 package bcs345_semester_project;
 
 import java.awt.MenuItem;
+import java.io.File;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,15 +31,20 @@ import javafx.scene.text.Text;
 import java.lang.Object;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 
 
-public class FXMLDocumentController implements Initializable {
-    
-    private String selectedShape="LINE";
-    
-    private Color selectedColor=Color.BLACK;
+public class FXMLDocumentController implements Initializable {   
+    // Establishes initial selected shape and color
+    private String selectedShape = "LINE";
+    private Color selectedColor = Color.BLACK;
     //Scene scene = new Scene(root);
+    
+    // Establishes variables needed to create shapes
     double srtX = 0, srtY = 0;
     double endX = 0, endY = 0;
     
@@ -160,6 +167,7 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
     }
 
     @FXML
@@ -177,15 +185,15 @@ public class FXMLDocumentController implements Initializable {
              case   "black": selectedColor=Color.BLACK;       break;
              case   "white": selectedColor=Color.WHITE;       break;
              case   "brown": selectedColor=Color.BROWN;       break;
-             case   "grey": selectedColor=Color.GREY;       break;    
-             
+             case   "grey": selectedColor=Color.GREY;       break;   
          }
+         
  mColorPicker.setOnAction(new EventHandler() {
      public void handle(Event t) {
          Color c = mColorPicker.getValue();
          selectedColor = c;
-     }
- });
+        }
+    });
     }
 
     @FXML
@@ -196,15 +204,51 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void openProgram(ActionEvent event) {
+        // Necessary for Open/Save file function
+        /*
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open File");
+        fileChooser.getExtensionFilters().addAll(new ExtensionFilter("All Files", "*.*"));
+        fileChooser.setInitialDirectory(new File("C:\\temp"));
+        File file = fileChooser.showSaveDialog(new Stage());
+        if(file != null) {
+            fileChooser.getSelectedFile();
+        }
+        else {
+            System.out.println("Unable to open file.");
+        }
+        */
     }
 
     @FXML
     private void saveProgram(ActionEvent event) {
+        // Necessary for Open/Save file function
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save File");
+        fileChooser.getExtensionFilters().addAll(new ExtensionFilter("All Files", "*.*"));
+        fileChooser.setInitialDirectory(new File("C:\\temp"));
+        File file = fileChooser.showSaveDialog(new Stage());
+        if(file != null) {
+            saveFile(file);
+        }
+        else {
+            System.out.println("Unable to save file.");
+        }
     }
 
     @FXML
     private void closeProgram(ActionEvent event) {
         Platform.exit();
               System.exit(0);
+    }
+    
+    public void saveFile(File file) {
+        try {
+            PrintWriter printWriter = new PrintWriter(file);
+            printWriter.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 } //end of program

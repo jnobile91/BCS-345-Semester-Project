@@ -1,8 +1,8 @@
 package bcs345_semester_project;
 
 import java.awt.MenuItem;
-import java.io.File;
-import java.io.PrintWriter;
+import java.awt.Desktop;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -204,42 +204,36 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void openProgram(ActionEvent event) {
-        // Necessary for Open/Save file function
-        /*
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open File");
-        fileChooser.getExtensionFilters().addAll(new ExtensionFilter("All Files", "*.*"));
-        fileChooser.setInitialDirectory(new File("C:\\temp"));
-        File file = fileChooser.showSaveDialog(new Stage());
-        if(file != null) {
-            fileChooser.getSelectedFile();
-        }
-        else {
-            System.out.println("Unable to open file.");
-        }
-        */
+        //File file = new File();
     }
 
     @FXML
     private void saveProgram(ActionEvent event) {
         // Necessary for Open/Save file function
+        // TO DO - Code is not saving any content to file at this time
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save File");
         fileChooser.getExtensionFilters().addAll(new ExtensionFilter("All Files", "*.*"));
         fileChooser.setInitialDirectory(new File("C:\\temp"));
-        File file = fileChooser.showSaveDialog(new Stage());
-        if(file != null) {
-            saveFile(file);
-        }
-        else {
-            System.out.println("Unable to save file.");
-        }
+        try {
+            File file = fileChooser.showSaveDialog(new Stage());
+            if (file.createNewFile()) {
+                System.out.println("File created: " + file.getName());
+                }
+            else {
+                System.out.println("File already exists.");
+                }
+            }
+          catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+            }
     }
 
     @FXML
     private void closeProgram(ActionEvent event) {
         Platform.exit();
-              System.exit(0);
+        System.exit(0);
     }
     
     public void saveFile(File file) {

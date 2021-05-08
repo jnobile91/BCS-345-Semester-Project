@@ -89,7 +89,6 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Slider fx:id="mSlider" max="5" orientation="VERTICAL" prefHeight="46.0" prefWidth="31.0" />
             <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="84.0" text="Eraser">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0">
@@ -97,6 +96,11 @@
                         <Image url="@icons/eraser.png" />
                      </image>
                   </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="84.0" text="Width">
+               <graphic>
+                  <Slider fx:id="mSlider" max="5" orientation="VERTICAL" prefHeight="46.0" prefWidth="31.0" />
                </graphic>
             </Button>
         </items>

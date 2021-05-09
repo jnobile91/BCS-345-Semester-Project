@@ -2,6 +2,7 @@ package bcs345_semester_project;
 
 import java.awt.MenuItem;
 import java.awt.Desktop;
+import java.util.Scanner;
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Circle;
@@ -28,13 +29,16 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
-import java.lang.Object;
+import java.lang.Object.*;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+
 
 
 
@@ -52,6 +56,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ColorPicker mColorPicker;
     private Group c;
+    private Text text = new Text("");
+    private TextField textInput = new TextField();
     @FXML
     private Canvas mCanvas;
     @FXML
@@ -82,6 +88,9 @@ public class FXMLDocumentController implements Initializable {
                break;
             case   "Eraser":
                selectedShape = "ERASER";  
+               break;
+            case   "Text":                 
+               selectedShape = "TEXT";     
                break;
          }
     }
@@ -132,11 +141,19 @@ public class FXMLDocumentController implements Initializable {
                   gc.strokeOval(endX, endY, (srtX-endX), (srtY-endY));
                 }
             break;
+             case "TEXT":               
+               gc.strokeText("hi", srtX, srtY);
+            break;
+          
+           
+    
+  
         }
     }
     
     @FXML
     private void startPencil(MouseEvent event) {
+        
         endX = event.getX();
         endY = event.getY();
         GraphicsContext gc = mCanvas.getGraphicsContext2D();
@@ -162,6 +179,23 @@ public class FXMLDocumentController implements Initializable {
           case "ERASER":
                 gc.clearRect(endX, endY, mSlider.getValue(), mSlider.getValue());
             break;
+            case "TEXT":
+//                //  TextField input = new TextField();          
+//                textInput.setLayoutX(event.getX());
+//                textInput.setLayoutY(event.getY());
+//                textInput.setOnKeyReleased(keyEvent -> {
+//                    if (keyEvent.getCode() == KeyCode.ENTER) {
+//
+//                        gc.strokeRect(event.getX(), event.getY(), 100, 100);
+//                        gc.fillText(textInput.getText(), event.getX() + 20, event.getY() + 20);
+//                    }
+//                });
+                
+                
+               
+                
+                break;
+            
         }
     }
 
@@ -172,7 +206,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void selectColor(ActionEvent event) {
-     // selectedColor = mColorPicker.getValue();
+   
  
             Button btn =(Button)event.getSource();   
          switch(btn.getId()){
@@ -195,7 +229,7 @@ public class FXMLDocumentController implements Initializable {
         }
     });
     }
-
+  
     @FXML
     private void newPage(ActionEvent event) {
        GraphicsContext gc = mCanvas.getGraphicsContext2D();
@@ -245,4 +279,6 @@ public class FXMLDocumentController implements Initializable {
             e.printStackTrace();
         }
     }
+   
+   
 } //end of program

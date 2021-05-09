@@ -37,6 +37,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
@@ -47,6 +48,8 @@ import javax.imageio.ImageIO;
 
 
 public class FXMLDocumentController implements Initializable {   
+   @FXML
+private Pane canvasRoot;
     // Establishes initial selected shape and color
     private String selectedShape = "LINE";
     private Color selectedColor = Color.BLACK;
@@ -145,9 +148,27 @@ public class FXMLDocumentController implements Initializable {
                   gc.strokeOval(endX, endY, (srtX-endX), (srtY-endY));
                 }
             break;
-             case "TEXT":               
-               gc.strokeText("hi", srtX, srtY);
-            break;
+            case "TEXT":
+                // TextField input = new TextField();
+                textInput.setLayoutX(srtX + 20);
+                textInput.setLayoutY(srtY + 20);
+                textInput.setOnKeyReleased(keyEvent -> {
+                    if (keyEvent.getCode() == KeyCode.ENTER) {
+                        gc.setFill(selectedColor);
+                        gc.fillText(textInput.getText(), srtX + 20, srtY + 20);
+                        canvasRoot.getChildren().remove(textInput);
+                    }                
+                });
+                
+//                 textInput.setOnMouseExited(mouseEvent -> {
+//                  
+//                        
+//                        gc.fillText(textInput.getText(), srtX + 20, srtY + 20);
+//                        canvasRoot.getChildren().remove(textInput);
+//                 });
+                canvasRoot.getChildren().add(textInput);
+
+                break;
           
            
     
@@ -183,22 +204,7 @@ public class FXMLDocumentController implements Initializable {
           case "ERASER":
                 gc.clearRect(endX, endY, mSlider.getValue(), mSlider.getValue());
             break;
-            case "TEXT":
-//                //  TextField input = new TextField();          
-//                textInput.setLayoutX(event.getX());
-//                textInput.setLayoutY(event.getY());
-//                textInput.setOnKeyReleased(keyEvent -> {
-//                    if (keyEvent.getCode() == KeyCode.ENTER) {
-//
-//                        gc.strokeRect(event.getX(), event.getY(), 100, 100);
-//                        gc.fillText(textInput.getText(), event.getX() + 20, event.getY() + 20);
-//                    }
-//                });
-                
-                
-               
-                
-                break;
+        
             
         }
     }

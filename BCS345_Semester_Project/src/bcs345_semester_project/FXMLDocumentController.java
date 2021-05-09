@@ -35,6 +35,7 @@ import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
@@ -246,10 +247,6 @@ private Pane canvasRoot;
        gc.clearRect(0, 0, mCanvas.getWidth(), mCanvas.getHeight());
     }
 
-    @FXML
-    private void openProgram(ActionEvent event) {
-        //File file = new File();
-    }
 
     @FXML
     private void saveProgram(ActionEvent event) {
@@ -288,8 +285,7 @@ private Pane canvasRoot;
         FileChooser fileChooser = new FileChooser();
 
         //Set extension filter
-        FileChooser.ExtensionFilter extFilter
-                = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
         fileChooser.getExtensionFilters().add(extFilter);
         
         Stage stage = (Stage) anchorid.getScene().getWindow();
@@ -307,6 +303,29 @@ private Pane canvasRoot;
                 //Logger.getLogger(JavaFX_DrawOnCanvas.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    @FXML
+    private void openProgram(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open File");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
+        fileChooser.getExtensionFilters().add(extFilter);
+        
+        Stage stage = (Stage) anchorid.getScene().getWindow();
+        
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        
+        if (selectedFile != null){
+            try {
+                InputStream io = new FileInputStream(selectedFile);
+                Image img = new Image(io);
+                mCanvas.getGraphicsContext2D().drawImage(img, 0, 0);
+            } catch (IOException ex){
+               
+            }
+        }
+        
     }
    
    

@@ -2,6 +2,7 @@ package bcs345_semester_project;
 
 import java.awt.MenuItem;
 import java.awt.Desktop;
+import java.awt.image.RenderedImage;
 import java.util.Scanner;
 import java.io.*;
 import java.net.URL;
@@ -31,13 +32,16 @@ import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import java.lang.Object.*;
 import javafx.application.Platform;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javax.imageio.ImageIO;
 
 
 
@@ -270,13 +274,32 @@ public class FXMLDocumentController implements Initializable {
         System.exit(0);
     }
     
-    public void saveFile(File file) {
-        try {
-            PrintWriter printWriter = new PrintWriter(file);
-            printWriter.close();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+    @FXML
+    private AnchorPane anchorid;
+    
+    @FXML
+    public void saveFile(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+
+        //Set extension filter
+        FileChooser.ExtensionFilter extFilter
+                = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
+        fileChooser.getExtensionFilters().add(extFilter);
+        
+        Stage stage = (Stage) anchorid.getScene().getWindow();
+        
+        //Show save file dialog
+        File file = fileChooser.showSaveDialog(stage);
+
+        if (file != null) {
+            try {
+                WritableImage writableImage = new WritableImage(773, 544);
+                mCanvas.snapshot(null, writableImage);
+                RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+                ImageIO.write(renderedImage, "png", file);
+            } catch (IOException ex) {
+                //Logger.getLogger(JavaFX_DrawOnCanvas.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
    

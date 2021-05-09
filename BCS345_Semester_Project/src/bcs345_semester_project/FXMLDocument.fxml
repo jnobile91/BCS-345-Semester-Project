@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="665.0" prefWidth="872.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="anchorid" prefHeight="665.0" prefWidth="872.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
    <children>
       <MenuBar fx:id="menuBar" prefHeight="29.0" prefWidth="872.0">
         <menus>
@@ -22,7 +22,7 @@
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#newPage" text="New" />
                   <MenuItem mnemonicParsing="false" onAction="#openProgram" text="Open" />
-                  <MenuItem mnemonicParsing="false" onAction="#saveProgram" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save" />
               <MenuItem mnemonicParsing="false" onAction="#closeProgram" text="Close" />
             </items>
           </Menu>

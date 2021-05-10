@@ -38,6 +38,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -70,6 +71,8 @@ private Pane canvasRoot;
     private Canvas mCanvas;
     @FXML
     private Slider mSlider;
+      double scaleSizeX =1.3;
+    double scaleSizeY =1.3;
  
     @FXML
     private void setShape(ActionEvent event) {
@@ -99,6 +102,9 @@ private Pane canvasRoot;
                break;
             case   "Text":                 
                selectedShape = "TEXT";     
+               break;
+            case   "Zoom":                 
+               selectedShape = "ZOOM";     
                break;
          }
     }
@@ -168,12 +174,22 @@ private Pane canvasRoot;
 //                        canvasRoot.getChildren().remove(textInput);
 //                 });
                 canvasRoot.getChildren().add(textInput);
-
                 break;
-          
-           
-    
-  
+                case "ZOOM":    
+               
+                   
+                    mCanvas.setScaleX((scaleSizeX+=.3));
+                    mCanvas.setScaleY((scaleSizeY+=.3));
+                   
+                    
+                 mCanvas.setOnMouseClicked(mouseEvent -> {
+                    if (mouseEvent.getButton() == MouseButton.SECONDARY) {
+                    mCanvas.setScaleX((scaleSizeX-=.6));
+                    mCanvas.setScaleY((scaleSizeY-=.6));      
+                  
+                    }
+                });
+                break;
         }
     }
     
@@ -245,6 +261,8 @@ private Pane canvasRoot;
     private void newPage(ActionEvent event) {
        GraphicsContext gc = mCanvas.getGraphicsContext2D();
        gc.clearRect(0, 0, mCanvas.getWidth(), mCanvas.getHeight());
+       mCanvas.setScaleX(1.0);
+         mCanvas.setScaleY(1.0);
     }
 
 

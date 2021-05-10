@@ -15,15 +15,20 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="665.0" prefWidth="872.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="anchorid" prefHeight="665.0" prefWidth="872.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bcs345_semester_project.FXMLDocumentController">
    <children>
+      <Pane fx:id="canvasRoot" layoutX="94.0" layoutY="29.0" prefHeight="542.0" prefWidth="779.0">
+           <children>
+      <Canvas fx:id="mCanvas" height="542.0" onMouseDragged="#startPencil" onMousePressed="#startShape" onMouseReleased="#startDraw" width="779.0" />
+           </children>
+      </Pane>
       <MenuBar fx:id="menuBar" prefHeight="29.0" prefWidth="872.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#newPage" text="New" />
                   <MenuItem mnemonicParsing="false" onAction="#openProgram" text="Open" />
-                  <MenuItem mnemonicParsing="false" onAction="#saveProgram" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save" />
               <MenuItem mnemonicParsing="false" onAction="#closeProgram" text="Close" />
             </items>
           </Menu>
@@ -108,6 +113,15 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="84.0" text="Zoom">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@icons/zoom.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             <Button mnemonicParsing="false" onAction="#setShape" prefHeight="38.0" prefWidth="84.0" text="Width">
                <graphic>
                   <Slider fx:id="mSlider" max="5" orientation="VERTICAL" prefHeight="46.0" prefWidth="31.0" />
@@ -115,11 +129,6 @@
             </Button>
         </items>
       </ToolBar>
-      <Pane fx:id="canvasRoot" layoutX="94.0" layoutY="29.0" prefHeight="542.0" prefWidth="779.0">
-           <children>
-      <Canvas fx:id="mCanvas" height="542.0" layoutY="1.0" onMouseDragged="#startPencil" onMousePressed="#startShape" onMouseReleased="#startDraw" width="779.0" />
-           </children>
-      </Pane>
       <ToolBar layoutX="-3.0" layoutY="576.0" prefHeight="89.0" prefWidth="872.0">
          <items>
             <ColorPicker fx:id="mColorPicker" accessibleRole="BUTTON" onAction="#selectColor" prefHeight="50.0" prefWidth="80.0">

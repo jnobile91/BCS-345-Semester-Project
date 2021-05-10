@@ -56,17 +56,15 @@ import javax.imageio.ImageIO;
 *   Steven Lannon
 */
 public class FXMLDocumentController implements Initializable {   
-   @FXML
-private Pane canvasRoot;
+    @FXML
+    private Pane canvasRoot;
     // Establishes initial selected shape and color
     private String selectedShape = "LINE";
     private Color selectedColor = Color.BLACK;
-    //Scene scene = new Scene(root);
     
-    // Establishes variables needed to create shapes
+    // Establishes variables needed to for application
     double srtX = 0, srtY = 0;
     double endX = 0, endY = 0;
-    
     private Label label;
     @FXML
     private ColorPicker mColorPicker;
@@ -77,7 +75,7 @@ private Pane canvasRoot;
     private Canvas mCanvas;
     @FXML
     private Slider mSlider;
-      double scaleSizeX =1.3;
+    double scaleSizeX =1.3;
     double scaleSizeY =1.3;
  
     // Function called when selecting a tool in the toolbar

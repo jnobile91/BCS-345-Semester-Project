@@ -49,7 +49,8 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import javax.imageio.ImageIO;
 
-/* @authors
+/* 
+*   @authors
 *   Joseph Nobile
 *   Juan Marrero
 *   Michael Trant
@@ -114,30 +115,60 @@ public class FXMLDocumentController implements Initializable {
          }
     }
 
-    /* Function called on initial mouse click. This is used to
-    'reset' the starting point of all tools. */
+    /* 
+    *   Function called on initial mouse click. This is used to
+    *   'reset' the starting point of all tools.
+    */
     @FXML
     private void startShape(MouseEvent event) {
         srtX = event.getX();
         srtY = event.getY();
     }
     
-    /* Functions called we releasing the mouse
-    after selecting Line, Rectangle, Circle/Oval,
-    Text, or Zoom tools.*/
+    /*
+    *   Functions called we releasing the mouse
+    *   after selecting Line, Rectangle, Circle/Oval,
+    *   Text, or Zoom tools.
+    */
     @FXML
     private void startDraw(MouseEvent event) {
+        // Retrieves the end point once the mouse click is released
         endX = event.getX();
         endY = event.getY();
+        
+        // Creates GraphicsContext needed to establish shapes, color, width, etc.
         GraphicsContext gc = mCanvas.getGraphicsContext2D();
+        
+        // beginPath method used to reset each shape
         gc.beginPath();
+        
+        /* 
+        *   Sets the color of the shape to be created based upon which
+        *   color is selected with the color selector tool
+        */
         gc.setStroke(selectedColor);
+        
+        // Used to log the shape and color of each shape created
         System.out.println(selectedShape+" "+selectedColor);
+        
+        /* 
+        *   Sets the width of the shape to be created based upon which
+        *   width is selected with the width selector tool
+        */
         gc.setLineWidth(mSlider.getValue());
+        
+        /*
+        *   Uses a switch to create the chape that is selected
+        *   from the toolbar
+        */
         switch(selectedShape){
           case "LINE":   gc.strokeLine(srtX, srtY, endX, endY);
             break;
           case "RECT":  
+              /*
+              * Iterates through which direction the shape is being created
+              * and allows the shape to be created from any start/end point
+              */
               if ((srtX < endX) && (srtY < endY)) {
                   gc.strokeRect(srtX, srtY, (endX-srtX), (endY-srtY));
                 }
@@ -152,6 +183,10 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
           case "CIRCLE":
+              /*
+              * Iterates through which direction the shape is being created
+              * and allows the shape to be created from any start/end point
+              */
               if ((srtX < endX) && (srtY < endY)) {
                   gc.strokeOval(srtX, srtY, (endX-srtX), (endY-srtY));
                 }
@@ -179,9 +214,11 @@ public class FXMLDocumentController implements Initializable {
                 canvasRoot.getChildren().add(textInput);
                 break;
             case "ZOOM":    
+                // Zooms IN if left mouse button is clicked
                 mCanvas.setScaleX((scaleSizeX+=.3));
                 mCanvas.setScaleY((scaleSizeY+=.3));
-                   
+                
+                // Zooms OUT if right mouse button is clicked
                 mCanvas.setOnMouseClicked(mouseEvent -> {
                     if (mouseEvent.getButton() == MouseButton.SECONDARY) {
                     mCanvas.setScaleX((scaleSizeX-=.6));
@@ -192,8 +229,10 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     
-    // Function called when dragging mouse for Pencil,
-    // Paintbrush, Spray, and Eraser tools
+    /* 
+    *   Function called when dragging mouse for Pencil,
+    *   Paintbrush, Spray, and Eraser tools
+    */
     @FXML
     private void startPencil(MouseEvent event) {
         endX = event.getX();
@@ -267,8 +306,10 @@ public class FXMLDocumentController implements Initializable {
     }
 
 
-    // NOT USED
-    // First attempt at function called when selecting "Save" from the menu
+    /* 
+    *   ***** NOT USED *****
+    *   First attempt at function called when selecting "Save" from the menu
+    */
     @FXML
     private void saveProgram(ActionEvent event) {
         // Necessary for Open/Save file function
@@ -404,4 +445,5 @@ public class FXMLDocumentController implements Initializable {
         }
     }
    
-} //end of program
+}
+// End of program

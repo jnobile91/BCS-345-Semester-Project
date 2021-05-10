@@ -357,8 +357,8 @@ private Pane canvasRoot;
         {
             // Creates new text area to display README file
             TextArea readmeText = new TextArea();
-            readmeText.setPrefWidth(1000);
-            readmeText.setPrefHeight(1000);
+            readmeText.setPrefWidth(700);
+            readmeText.setPrefHeight(700);
             
             // Initializes FileReader to read from README file
             FileReader fileReader = new FileReader(readme);
@@ -381,7 +381,7 @@ private Pane canvasRoot;
             Group readmeGroup = new Group(readmeText);
             Stage readmeStage = new Stage();
             readmeStage.setTitle("README");
-            Scene readmeScene = new Scene(readmeGroup, 1000, 1000);
+            Scene readmeScene = new Scene(readmeGroup, 700, 700);
             readmeStage.setScene(readmeScene);
             readmeStage.show();
             

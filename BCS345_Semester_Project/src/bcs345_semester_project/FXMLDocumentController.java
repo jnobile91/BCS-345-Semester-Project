@@ -49,9 +49,12 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import javax.imageio.ImageIO;
 
-
-
-
+/* @authors
+*   Joseph Nobile
+*   Juan Marrero
+*   Michael Trant
+*   Steven Lannon
+*/
 public class FXMLDocumentController implements Initializable {   
    @FXML
 private Pane canvasRoot;
@@ -77,6 +80,7 @@ private Pane canvasRoot;
       double scaleSizeX =1.3;
     double scaleSizeY =1.3;
  
+    // Function called when selecting a tool in the toolbar
     @FXML
     private void setShape(ActionEvent event) {
         Button btn =(Button)event.getSource();
@@ -112,12 +116,17 @@ private Pane canvasRoot;
          }
     }
 
+    /* Function called on initial mouse click. This is used to
+    'reset' the starting point of all tools. */
     @FXML
     private void startShape(MouseEvent event) {
         srtX = event.getX();
         srtY = event.getY();
     }
     
+    /* Functions called we releasing the mouse
+    after selecting Line, Rectangle, Circle/Oval,
+    Text, or Zoom tools.*/
     @FXML
     private void startDraw(MouseEvent event) {
         endX = event.getX();
@@ -169,36 +178,26 @@ private Pane canvasRoot;
                         canvasRoot.getChildren().remove(textInput);
                     }                
                 });
-                
-//                 textInput.setOnMouseExited(mouseEvent -> {
-//                  
-//                        
-//                        gc.fillText(textInput.getText(), srtX + 20, srtY + 20);
-//                        canvasRoot.getChildren().remove(textInput);
-//                 });
                 canvasRoot.getChildren().add(textInput);
                 break;
-                case "ZOOM":    
-               
+            case "ZOOM":    
+                mCanvas.setScaleX((scaleSizeX+=.3));
+                mCanvas.setScaleY((scaleSizeY+=.3));
                    
-                    mCanvas.setScaleX((scaleSizeX+=.3));
-                    mCanvas.setScaleY((scaleSizeY+=.3));
-                   
-                    
-                 mCanvas.setOnMouseClicked(mouseEvent -> {
+                mCanvas.setOnMouseClicked(mouseEvent -> {
                     if (mouseEvent.getButton() == MouseButton.SECONDARY) {
                     mCanvas.setScaleX((scaleSizeX-=.6));
-                    mCanvas.setScaleY((scaleSizeY-=.6));      
-                  
+                    mCanvas.setScaleY((scaleSizeY-=.6));
                     }
                 });
                 break;
         }
     }
     
+    // Function called when dragging mouse for Pencil,
+    // Paintbrush, Spray, and Eraser tools
     @FXML
     private void startPencil(MouseEvent event) {
-        
         endX = event.getX();
         endY = event.getY();
         GraphicsContext gc = mCanvas.getGraphicsContext2D();
@@ -224,8 +223,6 @@ private Pane canvasRoot;
           case "ERASER":
                 gc.clearRect(endX, endY, mSlider.getValue(), mSlider.getValue());
             break;
-        
-            
         }
     }
 
@@ -234,11 +231,12 @@ private Pane canvasRoot;
         
     }
 
+    // Function called when selecting a color from the toolbar
     @FXML
     private void selectColor(ActionEvent event) {
-   
- 
             Button btn =(Button)event.getSource();   
+            
+         // Switch used for color presets
          switch(btn.getId()){
              case   "blue": selectedColor=Color.BLUE;       break;
              case   "red": selectedColor=Color.RED;       break;
@@ -252,14 +250,16 @@ private Pane canvasRoot;
              case   "grey": selectedColor=Color.GREY;       break;   
          }
          
- mColorPicker.setOnAction(new EventHandler() {
-     public void handle(Event t) {
-         Color c = mColorPicker.getValue();
-         selectedColor = c;
+        // Establishes ColorPicker object
+        mColorPicker.setOnAction(new EventHandler() {
+            public void handle(Event t) {
+                Color c = mColorPicker.getValue();
+                selectedColor = c;
+               }
+            });
         }
-    });
-    }
   
+    // Function called when selecting "New" from the menu
     @FXML
     private void newPage(ActionEvent event) {
        GraphicsContext gc = mCanvas.getGraphicsContext2D();
@@ -269,6 +269,8 @@ private Pane canvasRoot;
     }
 
 
+    // NOT USED
+    // First attempt at function called when selecting "Save" from the menu
     @FXML
     private void saveProgram(ActionEvent event) {
         // Necessary for Open/Save file function
@@ -291,6 +293,7 @@ private Pane canvasRoot;
             }
     }
 
+    // Function called when selecting "Close" from the menu
     @FXML
     private void closeProgram(ActionEvent event) {
         Platform.exit();
@@ -300,11 +303,13 @@ private Pane canvasRoot;
     @FXML
     private AnchorPane anchorid;
     
+    // Function called when selecting "Save" from the menu
     @FXML
     public void saveFile(ActionEvent event) {
+        // Establishes FileChooser object used to open Windows Explorer
         FileChooser fileChooser = new FileChooser();
 
-        //Set extension filter
+        // Specifies what types of files can be opened
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
         fileChooser.getExtensionFilters().add(extFilter);
         
@@ -313,6 +318,7 @@ private Pane canvasRoot;
         //Show save file dialog
         File file = fileChooser.showSaveDialog(stage);
 
+        // Uses iostream to save selected file, otherwise displays error message
         if (file != null) {
             try {
                 WritableImage writableImage = new WritableImage(773, 544);
@@ -325,10 +331,14 @@ private Pane canvasRoot;
         }
     }
     
+    // Function called when selecting "Open" from the menu
     @FXML
     private void openProgram(ActionEvent event) {
+        // Establishes FileChooser object used to open Windows Explorer
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open File");
+        
+        // Specifies what types of files can be opened
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
         fileChooser.getExtensionFilters().add(extFilter);
         
@@ -336,18 +346,20 @@ private Pane canvasRoot;
         
         File selectedFile = fileChooser.showOpenDialog(stage);
         
+        // Uses iostream to load selected file, otherwise displays error message
         if (selectedFile != null){
             try {
                 InputStream io = new FileInputStream(selectedFile);
                 Image img = new Image(io);
                 mCanvas.getGraphicsContext2D().drawImage(img, 0, 0);
             } catch (IOException ex){
-               
+               System.out.print("Error loading file.");
             }
         }
         
     }
    
+    // Function called when selecting "Help" from the menu
     @FXML
     private void displayReadme(ActionEvent event) {
         String readme = "README.md";

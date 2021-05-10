@@ -4,8 +4,8 @@ Contains the Paint Application Semester Project for Java
 Contributors:
 Joseph Nobile
 Juan Marrero
-Steven Lannon
 Michael Trant
+Steven Lannon
 
 Features include:
 1) Line tool - Creates a line from initial mouse click to point at mouse release

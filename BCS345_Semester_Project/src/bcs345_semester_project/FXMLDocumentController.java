@@ -34,12 +34,15 @@ import java.lang.Object.*;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
@@ -269,7 +272,6 @@ private Pane canvasRoot;
     @FXML
     private void saveProgram(ActionEvent event) {
         // Necessary for Open/Save file function
-        // TO DO - Code is not saving any content to file at this time
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save File");
         fileChooser.getExtensionFilters().addAll(new ExtensionFilter("All Files", "*.*"));
@@ -350,22 +352,45 @@ private Pane canvasRoot;
     private void displayReadme(ActionEvent event) {
         String readme = "README.md";
         String line = null;
+
         try
         {
+            // Creates new text area to display README file
+            TextArea readmeText = new TextArea();
+            readmeText.setPrefWidth(1000);
+            readmeText.setPrefHeight(1000);
+            
+            // Initializes FileReader to read from README file
             FileReader fileReader = new FileReader(readme);
 
+            // Initializes BufferedReader to read through README file line by line
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
+            // Appends text area to include each line from README file, separated
+            // by new lines using "\n"
             while((line = bufferedReader.readLine()) != null)
             {
+                readmeText.appendText(line + "\n");
                 System.out.println(line);
             }
 
+            // Disables reader from being able to edit the README text displayed
+            readmeText.setEditable(false);
+            
+            // Establishes objects needed to display README in a new window
+            Group readmeGroup = new Group(readmeText);
+            Stage readmeStage = new Stage();
+            readmeStage.setTitle("README");
+            Scene readmeScene = new Scene(readmeGroup, 1000, 1000);
+            readmeStage.setScene(readmeScene);
+            readmeStage.show();
+            
             bufferedReader.close();
+            
         }
         catch(IOException e)
         {
-            System.out.println("Error reading file named '" + readme + "'");
+            System.out.println("Error reading '" + readme + "' file.");
         }
     }
    

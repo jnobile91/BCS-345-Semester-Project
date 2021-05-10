@@ -416,6 +416,7 @@ public class FXMLDocumentController implements Initializable {
                 RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
                 ImageIO.write(renderedImage, "png", file);
             } catch (IOException ex) {
+                System.out.print("Error saving file.");
                 //Logger.getLogger(JavaFX_DrawOnCanvas.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

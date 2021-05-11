@@ -91,8 +91,14 @@ public class FXMLDocumentController implements Initializable {
             case   "Rect":
                selectedShape = "RECT";       
                break;
+            case   "Full Rect":
+               selectedShape = "FULLRECT";       
+               break;
             case   "Circle": 
                selectedShape = "CIRCLE";   
+               break;
+            case   "Full Circle":
+               selectedShape = "FULLCIRCLE";       
                break;
             case   "Pencil": 
                selectedShape = "PENCIL";
@@ -162,8 +168,10 @@ public class FXMLDocumentController implements Initializable {
         *   from the toolbar
         */
         switch(selectedShape){
+          // Creates a line from mouse click to mouse release
           case "LINE":   gc.strokeLine(srtX, srtY, endX, endY);
             break;
+          // Creates a rectangle from mouse click to mouse release
           case "RECT":  
               /*
               * Iterates through which direction the shape is being created
@@ -182,6 +190,27 @@ public class FXMLDocumentController implements Initializable {
                   gc.strokeRect(endX, endY, (srtX-endX), (srtY-endY));
                 }
             break;
+          // Creates a filled rectangle from mouse click to mouse release
+          case "FULLRECT":  
+              /*
+              * Iterates through which direction the shape is being created
+              * and allows the shape to be created from any start/end point
+              */
+              gc.setFill(selectedColor);
+              if ((srtX < endX) && (srtY < endY)) {
+                  gc.fillRect(srtX, srtY, (endX-srtX), (endY-srtY));
+                }
+              else if ((srtX > endX) && (srtY < endY)) {
+                  gc.fillRect(endX, srtY, (srtX-endX), (endY-srtY));
+                }
+              else if ((srtX < endX) && (srtY > endY)) {
+                  gc.fillRect(srtX, endY, (endX-srtX), (srtY-endY));
+                }
+              else {
+                  gc.fillRect(endX, endY, (srtX-endX), (srtY-endY));
+                }
+            break;
+          // Creates a circle from mouse click to mouse release
           case "CIRCLE":
               /*
               * Iterates through which direction the shape is being created
@@ -200,7 +229,28 @@ public class FXMLDocumentController implements Initializable {
                   gc.strokeOval(endX, endY, (srtX-endX), (srtY-endY));
                 }
             break;
-            case "TEXT":
+          // Creates a filled circle from mouse click to mouse release 
+          case "FULLCIRCLE":  
+              /*
+              * Iterates through which direction the shape is being created
+              * and allows the shape to be created from any start/end point
+              */
+              gc.setFill(selectedColor);
+              if ((srtX < endX) && (srtY < endY)) {
+                  gc.fillOval(srtX, srtY, (endX-srtX), (endY-srtY));
+                }
+              else if ((srtX > endX) && (srtY < endY)) {
+                  gc.fillOval(endX, srtY, (srtX-endX), (endY-srtY));
+                }
+              else if ((srtX < endX) && (srtY > endY)) {
+                  gc.fillOval(srtX, endY, (endX-srtX), (srtY-endY));
+                }
+              else {
+                  gc.fillOval(endX, endY, (srtX-endX), (srtY-endY));
+                }
+            break;
+          // Creates a text field at mouse click
+          case "TEXT":
                 // TextField input = new TextField();
                 textInput.setLayoutX(srtX + 20);
                 textInput.setLayoutY(srtY + 20);
@@ -213,7 +263,8 @@ public class FXMLDocumentController implements Initializable {
                 });
                 canvasRoot.getChildren().add(textInput);
                 break;
-            case "ZOOM":    
+          // Zooms in on left mouse click, zooms out on right mouse click
+          case "ZOOM":    
                 // Zooms IN if left mouse button is clicked
                 mCanvas.setScaleX((scaleSizeX+=.3));
                 mCanvas.setScaleY((scaleSizeY+=.3));
@@ -365,6 +416,7 @@ public class FXMLDocumentController implements Initializable {
                 RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
                 ImageIO.write(renderedImage, "png", file);
             } catch (IOException ex) {
+                System.out.print("Error saving file.");
                 //Logger.getLogger(JavaFX_DrawOnCanvas.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

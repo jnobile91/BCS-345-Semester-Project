@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 *   @authors
 *   Joseph Nobile
 *   Juan Marrero
-*   Michael Trant
 *   Steven Lannon
 */
 public class BCS345_Semester_Project extends Application {

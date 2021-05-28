@@ -53,7 +53,6 @@ import javax.imageio.ImageIO;
 *   @authors
 *   Joseph Nobile
 *   Juan Marrero
-*   Michael Trant
 *   Steven Lannon
 */
 public class FXMLDocumentController implements Initializable {   
